@@ -1,0 +1,21 @@
+SRC = $(wildcard *.c)
+OBJS = $(patsubst %.c, %.o, $(SRC))
+#TARGETS = $(notdir $(basename $(SRC)))
+TARGETS = imp_ls1
+CC = gcc
+#RMOTHER = new_*
+
+#all: $(TARGETS)
+
+%: %.o
+	$(CC) -g -Wall $< -o $@
+#$(TARGETS):$(OBJS)
+#	$(CC) -g -Wall $< -o $@
+
+%.o: %.c
+	$(CC) -c $< -o $@
+
+.PHONY: clean all
+
+clean:
+	rm -rf $(TARGETS) $(OBJS)

@@ -1,0 +1,5 @@
+车队表：`Fleet(Fleet_ID, Fleet_Name)`，主码：`Fleet_ID`  
+车辆表：`Vehicle(Plate_No, Manufacturer, Manufacture_Date, Fleet_ID)`，主码：`Plate_No`，外键：`Fleet_ID`  
+司机表：`Driver(Driver_ID, Name, Phone, Fleet_ID)`，主码：`Driver_ID`，外键：`Fleet_ID`  
+聘用表：`Hire(Driver_ID, Fleet_ID, Hire_Start_Date, Contract_Period)`，主码：`Driver_ID, Fleet_ID`，外键：`Driver_ID`（指向Driver），`Fleet_ID`（指向Fleet）  
+使用表：`Use(Driver_ID, Plate_No, Use_Date, Kilometers)`，主码：`Driver_ID, Plate_No, Use_Date`，外键：`Driver_ID`（指向Driver），`Plate_No`（指向Vehicle）
